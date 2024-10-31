@@ -11,10 +11,21 @@ const cors = require(`cors`);
 
 const path = require(`path`);
 
-const routes = require(`./routes/routes`);
 
 
 const db = require(`./db/db`);//modulo de conexao com o banco de dados
+
+const clienteRoutes = require('./routes/clienteRoutes')
+
+const comodidadeRoutes = require('./routes/comodidadeRoutes')
+
+const ocuparRoutes = require('./routes/ocuparRoutes')
+
+const quartoRoutes = require('./routes/quartoRoutes')
+
+const reservaRoutes = require('./routes/reservaRoutes')
+
+
 
 //utilizado para segurança
 const corsOption = {
@@ -44,8 +55,25 @@ app.get('/', (req, res) => {
 });//toda vez q o usuario digitar o nome do site ele vai cair no home.html
 // sistema de organização ignorando o nome do usuario  e usa como referencia o pages e home
 
+// se o usuario digitar google.com vai pro home, mas se ele escrever qualquer coisa depois da barra ele vai achar a rota interna do sistema e levar o usuario ate lá 
+
+app.use ('/', clienteRoutes);
+
+
+app.use ('/', quartoRoutes);
+
+
+app.use ('/', comodidadeRoutes);
+
+
+app.use ('/', reservaRoutes);
+
+
+app.use ('/', ocuparRoutes);
+
+
 //configuraçao de rotas
-app.use('/', routes);// se o usuario digitar google.com vai pro home, mas se ele escrever qualquer coisa depois da barra ele vai achar a rota interna do sistema e levar o usuario ate lá 
+// se o usuario digitar google.com vai pro home, mas se ele escrever qualquer coisa depois da barra ele vai achar a rota interna do sistema e levar o usuario ate lá 
 
 //middleware de tratamento de erros
 app.use((err, req, res, next) => {
