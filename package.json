@@ -12,7 +12,7 @@
     "mysql2": "^3.11.3",
     "node": "^23.1.0"
   },
-  "name": "apihotel",
+  "name": "apihotelsmp",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
