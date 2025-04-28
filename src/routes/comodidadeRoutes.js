@@ -5,9 +5,12 @@ const comodidadeController = require('../controller/comodidadeController'); //
 
 router.get('/comodidade', comodidadeController.listarComodidade);
 
-router.get('/comodidade/:cpf', comodidadeController.listarIdComodidade);
+router.get('/comodidade/:id_Comodidade', comodidadeController.listarIdComodidade);
 
+router.put('/comodidade/:id_Comodidade', comodidadeController.atualizarComodidade);
 
-router.delete('/comodidade/:cpf', comodidadeController.deletarComodidade);
+router.post('/comodidade', comodidadeController.adicionarComodidade);
+
+router.delete('/comodidade/:id_Comodidade', comodidadeController.deletarComodidade);
 
 module.exports = router;
